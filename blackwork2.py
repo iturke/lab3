@@ -3,7 +3,7 @@ import sqlite3
 # 1. Підключення до бази даних
 con = sqlite3.connect("voting_system.db")
 # Важливо: вмикаємо перевірку зв'язків
-con.execute("PRAGMA foreign_keys = ON")
+#con.execute("PRAGMA foreign_keys = ON")
 cur = con.cursor()
 
 # 2. Створення таблиць (схема з твоїх діаграм)
@@ -38,9 +38,6 @@ CREATE TABLE IF NOT EXISTS VOTES (
     voter_id INTEGER,
     timestamp DATETIME,
     source_id INTEGER,
-    FOREIGN KEY (block_id) REFERENCES BLOCKS (id),
-    FOREIGN KEY (voter_id) REFERENCES PERSONS (id),
-    FOREIGN KEY (source_id) REFERENCES SOURCES (id)
 )
 """)
 
